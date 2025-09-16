@@ -1,10 +1,11 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background-image: var(--bg-color-page);
+  background-image: var(--bg-images-page);
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-color: #161731;
+  background-color: var(--bg-color-page);
 
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
@@ -35,7 +36,7 @@
 }
 
 .header__theme-menu-item {
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
@@ -91,7 +92,7 @@
   top: 0;
   right: 9px;
   padding: 10px;
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
@@ -112,7 +113,7 @@
 }
 
 .title {
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
@@ -126,7 +127,7 @@
 }
 
 .title-decor {
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
@@ -139,51 +140,45 @@
 
 .text-decor {
   color: var(--accent-color, rgba(255, 0, 112, 1));
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
   letter-spacing: 0;
 }
 
-.title-decor2 {
-  font-family: var(--main-font, sans-serif);
+.title-thin {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 23.4px;
-  letter-spacing: 0;
-  background-color: var(--accent-bg-color, rgba(255, 0, 112, 1));
-  margin-bottom: 10px;
 }
 
 .text-nodecor {
   color: var(--decor-color, rgba(241, 178, 206, 1));
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font, monospace);
   font-weight: 400;
   font-size: 18px;
   line-height: 23.4px;
   letter-spacing: 0;
 }
 
-.content__section {
+.section {
   display: flex;
   flex-direction: column;
   padding: 0 10px;
 }
 
-.content_title:not(:last-child) {
+.section_title:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.content__section:not(:last-child) {
+.section:not(:last-child) {
   margin-bottom: 50px;
 }
 
-.content__section-block:not(:last-child) {
+.section-block:not(:last-child) {
   gap: 10px;
 }
 
-.content__section-link {
+.section-link {
   text-decoration: none;
   color: var(--decor-color, rgba(241, 178, 206, 1));
   text-shadow: 2px 2px 2px var(--accent-bg-color, rgba(255, 0, 112, 1));
@@ -198,23 +193,18 @@
   margin-bottom: 40px;
 }
 
-a,
-button:focus {
-  outline: none;
-  border: none;
-}
-
-.content__section-link:hover {
+.section-link:hover {
   color: var(--decor-color, rgba(241, 178, 206, 1));
-  text-decoration: underline;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
 }
 
-.content__section-link:focus-visible {
+.section-link:focus-visible {
   border: 1px solid var(--decor-color, rgba(241, 178, 206, 1));
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--accent-color, rgba(255, 0, 112, 1));
+  border: 1px solid var(--accent-color-transperent, rgba(255, 0, 112, 0.4));
 }
 
 .header__theme-menu-button:focus-visible {
@@ -242,7 +232,6 @@ button:focus {
 @media (768px <= width < 1024px) {
   .header {
     min-height: 1024px;
-    margin-bottom: 40px;
     padding: 0;
     gap: 0;
     margin-bottom: 60px;
@@ -291,16 +280,17 @@ button:focus {
     padding-inline-end: 20px;
   }
 
-  .content__section {
+  .section {
     padding: 0 20px;
   }
 
-  .content__section:not(:last-child) {
+  .section:not(:last-child) {
     margin-bottom: 80px;
   }
 
   .text-small {
-    width: 236px;
+    max-width: 236px;
+    width: 100%;
   }
 
   .card-img {
@@ -384,10 +374,10 @@ button:focus {
   .line-block {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    gap: 11px;
   }
 
-  .content__section {
+  .section {
     padding: 0 20px;
   }
 
@@ -403,16 +393,17 @@ button:focus {
   }
 
   .text-small {
-    width: 315px;
+    max-width: 315px;
+    width: 100%;
   }
 
-  .content__section-block-column {
+  .section-block-column {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
-  .content__section:not(:last-child) {
+  .section:not(:last-child) {
     margin-bottom: 80px;
   }
 
@@ -451,19 +442,5 @@ button:focus {
 
   .footer {
     min-height: 768px;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color-page: url(/images/cover-image-light.png);
-    --accent-color: rgba(53, 52, 48, 1);
-    --accent-bg-color: rgba(255, 141, 203, 1);
-    --decor-color: rgba(53, 52, 48, 1);
-    --title-text: rgba(255, 194, 230, 1);
-  }
-
-  .REC {
-    display: none;
   }
 }
