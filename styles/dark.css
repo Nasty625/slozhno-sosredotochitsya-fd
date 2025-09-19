@@ -7,9 +7,14 @@
 :root.theme-dark {
   --bg-images-page: url(../images/cover-image-dark.png);
   --bg-color-page: rgba(0, 0, 40, 1);
+  --text-color: rgba(0, 0, 40, 1);
   --accent-color: rgba(255, 0, 112, 1);
   --accent-bg-color: rgba(255, 0, 112, 1);
   --decor-color: rgba(241, 178, 206, 1);
   --title-text: rgba(219, 0, 255, 1);
   --accent-color-transperent: rgba(255, 0, 112, 0.4);
+}
+
+.theme-dark .REC {
+  display: block;
 }
